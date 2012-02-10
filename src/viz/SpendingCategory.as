@@ -141,7 +141,7 @@ package viz
 			_vis.operators[0].immediate = true; // filter immediately!
 			
 			// layout the stacked chart
-			_vis.operators.add(new StackedAreaLayout(_cols, .01));
+			_vis.operators.add(new StackedAreaLayout(_cols, .1));
 			//_vis.operators[1].layoutBounds = _boundsGraph;
 			if (_normalize) {
 				_vis.operators[1].scale.labelFormat = "0.####%"; // show as percent
@@ -163,9 +163,9 @@ package viz
 			_vis.operators.add(new ColorEncoder("data.sort", "nodes", "fillColor", ScaleType.CATEGORIES, colorPalette));
 			
 			// initialize y-axis labels: align
-			_vis.xyAxes.yAxis.labelOffsetX = 130;  	// offset labels to the right
-			_vis.xyAxes.yAxis.showLines = false; 	// supress horizontal gridlines
-			//_vis.xyAxes.yAxis.lineCapX2 = 10; 		// extra line length to the right (only applies if gridlines are showing)
+			_vis.xyAxes.yAxis.labelOffsetX = 140;  	// offset labels to the right
+			_vis.xyAxes.yAxis.showLines = true; 	// supress horizontal gridlines
+			_vis.xyAxes.yAxis.lineCapX2 = 10; 		// extra line length to the right (only applies if gridlines are showing)
 			_vis.xyAxes.showBorder = false;
 			_vis.xyAxes.yAxis.labelTextFormat = _fmtLabel;
 			
