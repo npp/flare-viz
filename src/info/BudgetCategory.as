@@ -16,7 +16,7 @@ package info
 			_category['medicare & health'] = 'Medicare, Medicaid, Children’s Health Insurance Program, as well as consumer and occupational health and safety.';
 			_category['military'] = 'Military, war costs, nuclear weapons, and international security.';
 			_category['science'] = 'Scientific research.';
-			_category['social security, unemployment & labor'] = 'Social Security, Unemployment Insurance, job training, and federal employee retirement and disability programs.';
+			_category['social security & labor'] = 'Social Security, Unemployment Insurance, job training, and federal employee retirement and disability programs.';
 			_category['transportation'] = 'Air, water, and ground transportation.';
 			_category['veterans benefits'] = 'Health care, housing, education, and income benefits for veterans.';
 			_category['other'] = 'Scientific research, transportation, international affairs, and government.';
@@ -29,7 +29,6 @@ package info
 					desc = _category[s];
 				}
 			}
-			trace('blerg');
 			return desc;
 		}
 	}
