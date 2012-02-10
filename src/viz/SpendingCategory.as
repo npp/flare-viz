@@ -91,7 +91,7 @@ package viz
 		private var _directionsText:String = 
 			"Rollover chart to view annual percentages and dollar amounts.";
 		private var _introText:String =
-			"The overall size of the federal budget has grown over the years, peaking in 2009 with the passage of the American Recovery and Reinvestment Act. Although Social Security, Unemployment, & Labor spending currently represents the largest part of the budget, Medicare & Health represents the largest percentage increase over the years.";
+			"The overall size of the federal budget has grown over the years. While Social Security & Labor currently represent the largest part of the budget, Medicare & Health represent the largest percentage increase over the years. The 2009 spike is a result of the American Recovery and Reinvestment Act.";
 		private var _footerText:String = "source: " + 
 			"(<a href='http://www.whitehouse.gov/omb'>Office of Management and Budget</a>)";
 		private var _category:BudgetCategory = new BudgetCategory();
