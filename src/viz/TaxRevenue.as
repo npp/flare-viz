@@ -87,11 +87,11 @@ package viz
 		private var _colors:Array = [0xFF1B4C82, 0xFF2B6BB3, 0xFF5089C8,  0xFF80AFE3, 0xFFC6D9EF]; //dark to light
 		
 		private var _titleText:String =
-			"Annual Revenue Sources, by percentage of total";
+			"Tax Revenue Sources, by percentage of total";
 		private var _directionsText:String = 
 			"Rollover chart to view annual percentages and dollar amounts.";
 		private var _introText:String =
-			"Some text here if there's anything we want to say.";
+			"The primary sources of tax revenue have shifted over the years. Currently, individual income taxes and payroll taxes make up the majority of collections, with corporate income taxes a distant third.";
 		private var _footerText:String = "source: " + 
 			"<a href='http://www.whitehouse.gov/omb'>White House Office of Management and Budget</a>";
 		
@@ -140,7 +140,7 @@ package viz
 			_vis.operators[0].immediate = true; // filter immediately!
 			
 			// layout the stacked chart
-			_vis.operators.add(new StackedAreaLayout(_cols));
+			_vis.operators.add(new StackedAreaLayout(_cols,.08));
 			if (_normalize) {
 				_vis.operators[1].scale.labelFormat = "0.####%"; // show as percent
 			}
