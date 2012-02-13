@@ -216,17 +216,21 @@ package viz
 				_vis.xyAxes.xAxis.value(_vis.mouseX, _vis.mouseY));
 			var year:String = (Math.round(yr)).toString();
 			var def:Boolean = (e.node.data[year] != undefined);
+			var toolTip:String;
 			
 			if (_normalize) {
-				TextSprite(e.tooltip).htmlText = Strings.format(
+				toolTip = Strings.format(
 					"<b>{0} {1}</b><br/>"+(def?"${2:###,###,###,###,##0}<br/>":"<i>{2}</i><br/>")+(def?"{3:0.0%}":"<i>{3}</i>"),
 					e.node.data.category,year, (def ? _colTotals[year] * e.node.data[year] : "Missing Data"),(def ? e.node.data[year] : "Missing Data"));
 			}
 			else {
-				TextSprite(e.tooltip).htmlText = Strings.format(
+				toolTip = Strings.format(
 					"<b>{0} {1}</b><br/>"+(def?"${2:###,###,###,###,##0}<br/>":"<i>{2}</i><br/>")+(def?"{3:0.0%}":"<i>{3}</i>"),
 					e.node.data.category,year, (def ? e.node.data[year] : "Missing Data"),(def ? e.node.data[year]/_colTotals[year] : "Missing Data"));
 			}
+			
+			toolTip = toolTip + Strings.format("<br/><i>Click to isolate {0}</i>",e.node.data.category); 
+			TextSprite(e.tooltip).htmlText = toolTip;
 			
 		}
 		
