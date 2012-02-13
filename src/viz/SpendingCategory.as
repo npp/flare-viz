@@ -70,6 +70,7 @@ package viz
 		private var _c:ConsoleLog = new ConsoleLog();
 			
 		private var _fmtHeader:TextFormat = new TextFormat("Helvetica,Arial",16,0,true);
+		private var _fmtFooter:TextFormat = new TextFormat("Helvetica,Arial",12,0x909090,false,true);
 		private var _fmt:TextFormat = new TextFormat("Helvetica,Arial",14,0,false);
 		private var _fmtLabel:TextFormat = new TextFormat("Helvetica,Arial",14,0,false);
 		private var _fmtStackedAreaLabel:TextFormat = new TextFormat("Helvetica,Arial",14,0,false);
@@ -93,7 +94,7 @@ package viz
 		private var _introText:String =
 			"The overall size of the federal budget has grown over the years. While Social Security & Labor currently represent the largest part of the budget, Medicare & Health represent the largest percentage increase over the years. The 2009 spike is a result of the American Recovery and Reinvestment Act.";
 		private var _footerText:String = "source: " + 
-			"(<a href='http://www.whitehouse.gov/omb'>Office of Management and Budget</a>)";
+			"<a href='http://www.whitehouse.gov/omb'>White House Office of Management and Budget</a>";
 		private var _category:BudgetCategory = new BudgetCategory();
 		
 		protected override function init():void
@@ -248,8 +249,8 @@ package viz
 			bounds.y += 75;
 			_bounds = bounds;
 			//set _boundsGraph values to add padding between viz bounds and the stacked chart
-			//_boundsGraph = _bounds;
-			//_boundsGraph.right = _bounds.right - 100;
+			_boundsGraph = _bounds;
+			_boundsGraph.height = _bounds.height - 35;
 			_boundsAxes = _bounds;
 			_boundsAxes.right = _bounds.right - 100;
 			layout();
@@ -260,11 +261,13 @@ package viz
 			if (_vis) {
 				// compute the visualization bounds
 				_vis.bounds = _bounds;
-				//_vis.operators[1].layoutBounds = _boundsGraph;
+				_vis.operators[1].layoutBounds = _boundsGraph;
 				_vis.xyAxes.layoutBounds = _boundsAxes;
 
 				// update
+				_footer.y = _boundsGraph.bottom + 30;
 				_vis.update();
+			
 			}	
 			
 		}
@@ -344,6 +347,11 @@ package viz
 			_intro.y = _directions.y + _directions.height + 10;
 			_intro.htmlText = _introText;
 			_header.addChild(_intro);
+			
+			//create footer
+			_footer = new TextSprite("", _fmtFooter);
+			_footer.htmlText = _footerText;
+			addChild(_footer);
 			
 		}
 		

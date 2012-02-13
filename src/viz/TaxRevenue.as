@@ -56,6 +56,7 @@ package viz
 	{
 		private var _bar:ProgressBar;
 		private var _bounds:Rectangle;
+		private var _boundsGraph:Rectangle;
 		
 		private var _vis:Visualization;
 		private var _header:Sprite = new Sprite;
@@ -68,6 +69,7 @@ package viz
 		private var _c:ConsoleLog = new ConsoleLog();
 			
 		private var _fmtHeader:TextFormat = new TextFormat("Helvetica,Arial",16,0,true);
+		private var _fmtFooter:TextFormat = new TextFormat("Helvetica,Arial",12,0x909090,false,true);
 		private var _fmt:TextFormat = new TextFormat("Helvetica,Arial",14,0,false);
 		private var _fmtLabel:TextFormat = new TextFormat("Helvetica,Arial",14,0,false);
 		private var _fmtStackedAreaLabel:TextFormat = new TextFormat("Helvetica,Arial",14,0,false);
@@ -91,7 +93,7 @@ package viz
 		private var _introText:String =
 			"Some text here if there's anything we want to say.";
 		private var _footerText:String = "source: " + 
-			"(<a href='http://www.whitehouse.gov/omb'>Office of Management and Budget</a>)";
+			"<a href='http://www.whitehouse.gov/omb'>White House Office of Management and Budget</a>";
 		
 		protected override function init():void
 		{
@@ -244,6 +246,11 @@ package viz
 			bounds.x += 15;
 			bounds.y += 75;
 			_bounds = bounds;
+			
+			//set _boundsGraph values to add padding between viz bounds and the stacked chart
+			_boundsGraph = _bounds;
+			_boundsGraph.height = _bounds.height - 35;
+			
 			layout();
 		}
 		
@@ -252,8 +259,10 @@ package viz
 			if (_vis) {
 				// compute the visualization bounds
 				_vis.bounds = _bounds;
+				_vis.operators[1].layoutBounds = _boundsGraph;
 
 				// update
+				_footer.y = _boundsGraph.bottom + 30;
 				_vis.update();
 			}	
 			
@@ -332,6 +341,11 @@ package viz
 			_intro.y = _directions.y + _directions.height + 10;
 			_intro.htmlText = _introText;
 			_header.addChild(_intro);
+			
+			//create footer
+			_footer = new TextSprite("", _fmtFooter);
+			_footer.htmlText = _footerText;
+			addChild(_footer);
 			
 		}
 		
