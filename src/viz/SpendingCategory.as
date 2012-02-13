@@ -85,7 +85,7 @@ package viz
 		//a few vis-specific settings
 		private var _normalize:Boolean = false;
 		private var _url:String = "info/budget-category.txt";
-		private var _colors:Array = [0xFF9ABDE3, 0xFF9ABDE3, 0xFF9ABDE3, 0xFF9ABDE3, 0xFF9ABDE3, 0xFF80AFE3, 0xFF80AFE3, 0xFF5089C8, 0xFF2B6BB3, 0xFF1B4C82];
+		private var _colors:Array = [0xFFC6D9EF, 0xFFC6D9EF, 0xFFC6D9EF, 0xFFC6D9EF, 0xFFC6D9EF, 0xFF80AFE3, 0xFF80AFE3, 0xFF5089C8, 0xFF2B6BB3, 0xFF1B4C82];
 		
 		private var _titleText:String =
 			"Federal Spending by Category, 1976 - 2013";

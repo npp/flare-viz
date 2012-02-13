@@ -84,7 +84,7 @@ package viz
 		//a few vis-specific settings
 		private var _normalize:Boolean = true;
 		private var _url:String = "info/revenue-sources.txt";
-		private var _colors:Array = [0xFF1B4C82, 0xFF2B6BB3, 0xFF5089C8,  0xFF80AFE3, 0xFF9ABDE3]; //dark to light
+		private var _colors:Array = [0xFF1B4C82, 0xFF2B6BB3, 0xFF5089C8,  0xFF80AFE3, 0xFFC6D9EF]; //dark to light
 		
 		private var _titleText:String =
 			"Annual Revenue Sources, by percentage of total";
