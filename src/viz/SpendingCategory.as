@@ -90,7 +90,7 @@ package viz
 		private var _titleText:String =
 			"Federal Spending by Category, 1976 - 2013";
 		private var _directionsText:String = 
-			"Rollover chart to view annual percentages and dollar amounts.";
+			"Rollover chart to view annual percentages and amounts (adjusted to 2013 dollars).";
 		private var _introText:String =
 			"The overall size of the federal budget has grown over the years. While Social Security & Labor currently represent the largest part of the budget, Medicare & Health represent the largest percentage increase over the years. The 2009 spike is a result of the American Recovery and Reinvestment Act.";
 		private var _footerText:String = "source: " + 
@@ -322,8 +322,8 @@ package viz
 			_header.addChild(_title);
 			
 			// create directions area
-			_directions = new TextSprite("", _fmt);
-			_directions.y = _title.y + _title.height + 5;
+			_directions = new TextSprite("", _fmtFooter);
+			_directions.y = _title.y + _title.height;
 			_directions.htmlText = _directionsText;
 			_header.addChild(_directions);
 			

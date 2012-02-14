@@ -89,7 +89,7 @@ package viz
 		private var _titleText:String =
 			"Tax Revenue Sources, by percentage of total";
 		private var _directionsText:String = 
-			"Rollover chart to view annual percentages and dollar amounts.";
+			"Rollover chart to view annual percentages and amounts (adjusted to 2013 dollars).";
 		private var _introText:String =
 			"The primary sources of tax revenue have shifted over the years. Currently, individual income taxes and payroll taxes make up the majority of collections, with corporate income taxes a distant third.";
 		private var _footerText:String = "source: " + 
@@ -316,8 +316,8 @@ package viz
 			_header.addChild(_title);
 			
 			// create directions area
-			_directions = new TextSprite("", _fmt);
-			_directions.y = _title.y + _title.height + 5;
+			_directions = new TextSprite("", _fmtFooter);
+			_directions.y = _title.y + _title.height;
 			_directions.htmlText = _directionsText;
 			_header.addChild(_directions);
 			
