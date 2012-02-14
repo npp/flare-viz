@@ -142,7 +142,7 @@ package viz
 			_vis.operators[0].immediate = true; // filter immediately!
 			
 			// layout the stacked chart
-			_vis.operators.add(new StackedAreaLayout(_cols, .1));
+			_vis.operators.add(new StackedAreaLayout(_cols, .03));
 			//_vis.operators[1].layoutBounds = _boundsGraph;
 			if (_normalize) {
 				_vis.operators[1].scale.labelFormat = "0.####%"; // show as percent
@@ -250,7 +250,8 @@ package viz
 			_bounds = bounds;
 			//set _boundsGraph values to add padding between viz bounds and the stacked chart
 			_boundsGraph = _bounds;
-			_boundsGraph.height = _bounds.height - 35;
+			_boundsGraph.y += 25;
+			_boundsGraph.height = _bounds.height - 60; //subtract 25 for room at the top and 35 to accommodate the footer text
 			_boundsAxes = _bounds;
 			_boundsAxes.right = _bounds.right - 100;
 			layout();
