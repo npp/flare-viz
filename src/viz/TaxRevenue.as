@@ -49,7 +49,7 @@ package viz
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	
-	import info.BudgetCategory;
+	import info.RevenueCategory;
 	
 	[SWF(backgroundColor="#ffffff", frameRate="30")]
 	public class TaxRevenue extends App
@@ -94,6 +94,7 @@ package viz
 			"The primary sources of tax revenue have shifted over the years. Currently, individual income taxes and payroll taxes make up the majority of collections, with corporate income taxes a distant third.";
 		private var _footerText:String = "source: " + 
 			"<a href='http://www.whitehouse.gov/omb'>White House Office of Management and Budget</a>";
+		private var _category:RevenueCategory = new RevenueCategory();
 		
 		protected override function init():void
 		{
@@ -293,9 +294,11 @@ package viz
 			if (filterText != null) {
 				_query[0] = filterText.toLowerCase().split(/\|/);
 				headerContainer.getChildByName("showAllButton").visible = true;
+				TextSprite(headerContainer.getChildByName("introTextField")).htmlText = _category.getCategory(_query[0]);
 			} else {
 				_query = new Array();
 				headerContainer.getChildByName("showAllButton").visible = false;
+				TextSprite(headerContainer.getChildByName("introTextField")).htmlText = _introText;
 			}
 			if (_t && _t.running) _t.stop();
 			_t = _vis.update(_dur);
