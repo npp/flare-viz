@@ -156,7 +156,7 @@ package viz
 			_vis.operators[2].threshold = 30;
 			_vis.operators[2].columnIndex = 3;
 			_vis.operators[2].baseSize = 7;
-			_vis.operators[2].maxWidth = 160; //max width of stacked area labels
+			_vis.operators[2].maxWidth = 170; //max width of stacked area labels
 			//_fmtStackedAreaLabel.rightMargin = 50; //right margin of stacked area labels
 			//_fmtStackedAreaLabel.leftMargin = 40; //left margin of stacked area labels
 			_vis.operators[2].textFormat = _fmtStackedAreaLabel
