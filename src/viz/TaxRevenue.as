@@ -84,7 +84,7 @@ package viz
 		//a few vis-specific settings
 		private var _normalize:Boolean = true;
 		private var _url:String = "info/revenue-sources.txt";
-		private var _colors:Array = [0xFF1B4C82, 0xFF2B6BB3, 0xFF5089C8,  0xFF80AFE3, 0xFFC6D9EF]; //dark to light
+		private var _colors:Array = [0xFF1B4C82, 0xFF2B6BB3, 0xFF5089C8,  0xFF80AFE3, 0xFFC6D9EF, 0xFFE0EAF7]; //dark to light
 		
 		private var _titleText:String =
 			"Tax Revenue Sources, by percentage of total";
@@ -151,7 +151,7 @@ package viz
 			
 			// label the stacks
 			_vis.operators.add(new StackedAreaLabeler("data.category"));
-			_vis.operators[2].threshold = 30;
+			_vis.operators[2].threshold = 0;
 			_vis.operators[2].columnIndex = 15;
 			//_vis.operators[2].maxWidth = 150; //max width of stacked area labels
 			//_fmtStackedAreaLabel.rightMargin = 50; //right margin of stacked area labels
