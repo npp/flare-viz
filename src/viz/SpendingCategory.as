@@ -92,7 +92,7 @@ package viz
 		private var _directionsText:String = 
 			"Rollover chart to view annual percentages and amounts (adjusted to 2013 dollars).";
 		private var _introText:String =
-			"The overall size of the federal budget has grown over the years. While Social Security & Labor currently represent the largest part of the budget, Medicare & Health represent the largest percentage increase over the years. The 2009 spike is a result of the American Recovery and Reinvestment Act.";
+			"The overall size of the federal budget has grown over the years. While Social Security, Unemployment & Labor represents the largest category of spending, Medicare & Health is the fastest growing, and represents the largest percentage increase in federal spending over the years. The spike in federal spending in 2009 is the result of the American Recovery & Reinvestment Act, also known as the stimulus package.";
 		private var _footerText:String = "source: " + 
 			"<a href='http://www.whitehouse.gov/omb'>White House Office of Management and Budget</a>";
 		private var _category:BudgetCategory = new BudgetCategory();
@@ -227,19 +227,26 @@ package viz
 			var year:String = (Math.round(yr)).toString();
 			var def:Boolean = (e.node.data[year] != undefined);
 			var toolTip:String;
+			var categoryName:String;
+			
+			if (e.node.data.category.toLowerCase().indexOf("social security") != -1) {
+				categoryName = "Social Security, Unemployment, and Labor";
+			} else {
+				categoryName = e.node.data.category;
+			}
 			
 			if (_normalize) {
 				toolTip = Strings.format(
 					"<b>{0} {1}</b><br/>"+(def?"${2:###,###,###,###,##0}<br/>":"<i>{2}</i><br/>")+(def?"{3:0.0%}":"<i>{3}</i>"),
-					e.node.data.category,year, (def ? _colTotals[year] * e.node.data[year] : "Missing Data"),(def ? e.node.data[year] : "Missing Data"));
+					categoryName,year, (def ? _colTotals[year] * e.node.data[year] : "Missing Data"),(def ? e.node.data[year] : "Missing Data"));
 			}
 			else {
 				toolTip = Strings.format(
 					"<b>{0} {1}</b><br/>"+(def?"${2:###,###,###,###,##0}<br/>":"<i>{2}</i><br/>")+(def?"{3:0.0%}":"<i>{3}</i>"),
-					e.node.data.category,year, (def ? e.node.data[year] : "Missing Data"),(def ? e.node.data[year]/_colTotals[year] : "Missing Data"));
+					categoryName,year, (def ? e.node.data[year] : "Missing Data"),(def ? e.node.data[year]/_colTotals[year] : "Missing Data"));
 			}
 			
-			toolTip = toolTip + Strings.format("<br/><i>Click to isolate {0}</i>",e.node.data.category); 
+			toolTip = toolTip + Strings.format("<br/><i>Click to isolate {0}</i>",categoryName); 
 			TextSprite(e.tooltip).htmlText = toolTip;
 			
 		}
