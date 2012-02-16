@@ -102,6 +102,12 @@ package viz
 			addChild(_bar = new ProgressBar());
 			_bar.bar.filters = [new DropShadowFilter(1)];
 			
+			//if location of data is being passed in via flashvars, override _url
+			var dataFile:String = this.loaderInfo.parameters.datafile;
+			if (dataFile != null) {
+				_url = dataFile;
+			}
+
 			var ds:DataSource = new DataSource(_url, "tab");
 			var ldr:URLLoader = ds.load();
 			
