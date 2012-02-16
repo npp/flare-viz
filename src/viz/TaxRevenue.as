@@ -91,7 +91,7 @@ package viz
 		private var _directionsText:String = 
 			"Rollover chart to view annual percentages and amounts (adjusted to 2013 dollars).";
 		private var _introText:String =
-			"The primary sources of tax revenue have shifted over the years. Currently, individual income taxes and payroll taxes make up the majority of collections, with corporate income taxes a distant third.";
+			"The primary sources of tax revenue have shifted over the years. Currently, individual income taxes and payroll taxes make up the majority of tax collections, with corporate income taxes a distant third.";
 		private var _footerText:String = "source: " + 
 			"<a href='http://www.whitehouse.gov/omb'>White House Office of Management and Budget</a>";
 		private var _category:RevenueCategory = new RevenueCategory();
